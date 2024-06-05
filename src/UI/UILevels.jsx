@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CircularOptionsPortfolioMenu from "./CircularOptionsPortfolioMenu";
 import CircularOptionsDataVizMenu from "./CircularOptionsDataVizMenu";
-import CircularLevelsMenu from "./CircularLevelsMenu";
 import { SocialUI } from "../UI/SocialUI.jsx";
 import Bubble from "../components/Bubble";
 
@@ -18,15 +17,9 @@ const UILevels = ({ levelName }) => {
       setLevelsActive(false);
     }
   };
-  const toggleLevelsMenu = (menuActive) => {
-    setLevelsActive(menuActive);
-    if (menuActive && optionsActive) {
-      setOptionsActive(false);
-    }
-  };
 
   useEffect(() => {
-    if (levelName === "Portfolio") {
+    if (levelName === "DataViz") {
       setTimeout(() => {
         setShowBubble(false);
       }, BUBBLE_TIME);
@@ -34,20 +27,6 @@ const UILevels = ({ levelName }) => {
   }, [levelName]);
 
   switch (levelName) {
-    case "Portfolio":
-      return (
-        <>
-          <SocialUI />
-          <CircularOptionsPortfolioMenu
-            onToggle={toggleOptionsMenu}
-            open={optionsActive}
-          />
-          <CircularLevelsMenu onToggle={toggleLevelsMenu} open={levelsActive} />
-          {showBubble && <Bubble />}
-        </>
-      );
-      break;
-
     case "DataViz":
       return (
         <>
@@ -56,7 +35,7 @@ const UILevels = ({ levelName }) => {
             onToggle={toggleOptionsMenu}
             open={optionsActive}
           />
-          <CircularLevelsMenu onToggle={toggleLevelsMenu} open={levelsActive} />
+          {showBubble && <Bubble />}
         </>
       );
       break;

@@ -3,16 +3,16 @@ import { SCENE, MODALS, TRANSITIONS } from "./Config.js";
 
 const useStore = create((set) => ({
   // Levels in system
-  levels: ["Portfolio", "DataViz"],
-  currentLevel: "Portfolio",
+  levels: ["DataViz"],
+  currentLevel: "DataViz",
   setCurrentLevel: (levelName) => set({ currentLevel: levelName }),
   onEnterLevel: true,
   onLeaveLevel: false,
   enterLevel: (status) => set({ onEnterLevel: status }),
   leaveLevel: (status) => set({ onLeaveLevel: status }),
   // Island slot positions
-  activeIsland: "configurator",
-  targetIsland: "configurator",
+  activeIsland: "medical",
+  targetIsland: "medical",
   ignoreButtonPress: false,
   setActiveIsland: (island) => set({ activeIsland: island }),
   setTargetIsland: (island) => set({ targetIsland: island }),
